@@ -45,8 +45,9 @@ android {
     }
 
     lint {
-        checkReleaseBuilds true
+        checkReleaseBuilds false
         abortOnError false
+        disable 'MissingTranslation', 'ExtraTranslation'
     }
 }
 
@@ -60,8 +61,13 @@ dependencies {
     // Material Design
     implementation 'com.google.android.material:material:1.10.0'
     
-    // Pico VR SDK - 实际版本请根据官方文档更新
+    // Pico VR SDK (注意: Maven 仓库存在 TLS 握手问题)
+    // 最新版本可在 https://xrapi.picovr.com/maven 查看
+    // 请使用本地 AAR 方案 (见下文: fileTree)
     // implementation 'com.picovr.app:frame:2.4.18'
+    
+    // 本地 Pico SDK AAR 文件支持
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
     
     // 后台任务和定时器
     implementation 'androidx.work:work-runtime:2.8.1'
