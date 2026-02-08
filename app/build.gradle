@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.pico.vrbg'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.pico.vrbg"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // 如果有签名密钥，可以在这里配置
+            // signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    buildFeatures {
+        aidl false
+        renderScript false
+        resValues true
+        shaders false
+    }
+
+    lint {
+        checkReleaseBuilds true
+        abortOnError false
+    }
+}
+
+dependencies {
+    // AndroidX库
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.annotation:annotation:1.7.0'
+    
+    // Material Design
+    implementation 'com.google.android.material:material:1.10.0'
+    
+    // Pico VR SDK - 实际版本请根据官方文档更新
+    // implementation 'com.picovr.app:frame:2.4.18'
+    
+    // 后台任务和定时器
+    implementation 'androidx.work:work-runtime:2.8.1'
+    
+    // 网络请求
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+    
+    // JSON解析（如果需要）
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // 日志库（可选）
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'com.github.tony19:logback-android:3.0.0'
+    
+    // 测试依赖
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+// 任务：构建release APK并在完成后显示消息
+tasks.register('buildAndReport') {
+    dependsOn 'assembleRelease'
+    doLast {
+        println "=" * 50
+        println "✓ Release APK已构建完成！"
+        println "位置: app/build/outputs/apk/release/app-release.apk"
+        println "=" * 50
+    }
+}
+
+// 任务：快速构建debug版本用于开发
+tasks.register('quickBuild') {
+    dependsOn 'assembleDebug'
+    doLast {
+        println "✓ Debug APK已构建完成！"
+        println "位置: app/build/outputs/apk/debug/app-debug.apk"
+    }
+}

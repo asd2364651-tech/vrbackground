@@ -1,0 +1,63 @@
+# Gradle
+.gradle/
+build/
+*.apk
+*.aar
+
+# Android Studio
+.idea/
+*.iml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Local configuration file
+local.properties
+
+# Log Files
+*.log
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# IDE specific files
+.vscode/
+*.swp
+*.swo
+*~
+
+# CI/CD
+.github/workflows/
+
+# Build outputs
+app/build/
+out/
+
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# Backup files
+*.bak
+*.tmp
+
+# macOS
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini

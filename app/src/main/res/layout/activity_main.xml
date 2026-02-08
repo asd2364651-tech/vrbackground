@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 应用标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 设备配置部分 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/device_config"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 设备编号 -->
+        <EditText
+            android:id="@+id/et_device_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/device_id"
+            android:text="PICO_VR_001"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- 设备名称 -->
+        <EditText
+            android:id="@+id/et_device_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/device_name"
+            android:text="VR Set 1"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- 播控系统地址 -->
+        <EditText
+            android:id="@+id/et_server_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/control_server_url"
+            android:text="192.168.1.100"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- 播控系统端口 -->
+        <EditText
+            android:id="@+id/et_server_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/control_server_port"
+            android:text="8080"
+            android:inputType="number"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- 数据上报间隔 -->
+        <EditText
+            android:id="@+id/et_report_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/data_report_interval"
+            android:text="60"
+            android:inputType="number"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#F5F5F5" />
+
+        <!-- 自动上报开关 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_report"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="8dp" />
+            <CheckBox
+                android:id="@+id/cb_auto_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- 配置按钮行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <Button
+                android:id="@+id/btn_save_config"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/save_config"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp" />
+            <Button
+                android:id="@+id/btn_test_connection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/test_connection"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- 设备信息部分 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 状态信息 -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/service_enabled"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:background="#E3F2FD" />
+
+        <!-- 电池信息 -->
+        <TextView
+            android:id="@+id/tv_battery_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:background="#E8F5E9" />
+
+        <!-- 设备ID显示 -->
+        <TextView
+            android:id="@+id/tv_device_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"
+            android:background="#F5F5F5"
+            android:text="Device ID: " />
+
+        <!-- 最后更新时间 -->
+        <TextView
+            android:id="@+id/tv_last_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:text="@string/last_update" />
+
+        <!-- 控制按钮 -->
+        <Button
+            android:id="@+id/btn_battery_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/get_battery_info"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_open_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_file"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/restart_device"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#FF9800" />
+
+        <Button
+            android:id="@+id/btn_shutdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/shutdown_device"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#F44336" />
+
+        <Button
+            android:id="@+id/btn_toggle_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="切换后台服务"
+            android:backgroundTint="#2196F3" />
+
+    </LinearLayout>
+
+</ScrollView>
